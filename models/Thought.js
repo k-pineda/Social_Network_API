@@ -1,4 +1,5 @@
 const { Schema, model } = require('mongoose');
+const Reaction = require('./Reaction')
 const dateFormat = require('../utils/dateFormat');
 
 const thoughtSchema = new Schema({
@@ -7,38 +8,24 @@ const thoughtSchema = new Schema({
     required: 'You need to leave a thought!',
     minlength: 1,
     maxlength: 280,
-    trim: true,
-  },
-  thoughtAuthor: {
-    type: String,
-    required: true,
-    trim: true,
   },
   createdAt: {
     type: Date,
     default: Date.now,
     get: (timestamp) => dateFormat(timestamp),
   },
-  comments: [
-    {
-      commentText: {
-        type: String,
-        required: true,
-        minlength: 1,
-        maxlength: 280,
-      },
-      commentAuthor: {
-        type: String,
-        required: true,
-      },
-      createdAt: {
-        type: Date,
-        default: Date.now,
-        get: (timestamp) => dateFormat(timestamp),
-      },
-    },
-  ],
+  username: {
+    type: String,
+    required: true,
+  },
+  reaction:[
+    Reaction
+  ]
 });
+
+thoughtSchema.virtual('reactionCount').get(function (){
+  return this.reaction.length; 
+}) 
 
 const Thought = model('Thought', thoughtSchema);
 
