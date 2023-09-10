@@ -45,4 +45,9 @@ This project provides API routes to perform all CRUD (Create, Read, Update, Dele
 
 For a detailed walkthrough of setting up and using this backend, please refer to the provided video walkthrough.
 
+
+https://github.com/k-pineda/Social_Network_API/assets/128410226/b8adf39b-915a-42a5-8a94-8e65b39562fc
+
+
+
 Happy coding!
