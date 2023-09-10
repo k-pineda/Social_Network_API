@@ -21,7 +21,14 @@ const reactionSchema = new Schema({
     default: Date.now,
     get: (timestamp) => dateFormat(timestamp),
   },
-});
+},
+{
+  toJSON: {
+    getters: true,
+  },
+  id: false,
+}
+);
 
 const Reaction = model('Reaction', reactionSchema);
 
