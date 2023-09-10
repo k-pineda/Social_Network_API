@@ -83,7 +83,7 @@ module.exports = {
         { runValidators: true, new: true }
       );
 
-      if (!users) {
+      if (!user) {
         return res
           .status(404)
           .json({ message: 'No user found with that ID :(' });
@@ -91,7 +91,7 @@ module.exports = {
 
       res.json(user);
     } catch (err) {
-      res.status(500).json(err);
+      res.status(500).json({ error: 'Internal Server Error' });
     }
   },
   // Remove friend from a user
