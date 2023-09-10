@@ -12,10 +12,10 @@ const {
 router.route('/').get(getStudents).post(createStudent);
 
 // /api/users/:userId
-router.route('/:studentId').get(getSingleStudent).delete(deleteStudent);
+router.route('/:userId').get(getSingleStudent).delete(deleteStudent);
 
 // /api/users/:userId/thoughts
-router.route('/:studentId/assignments').post(addAssignment);
+router.route('/:userId/thoughts').post(addAssignment);
 
 // /api/users/:userId/friends/:friendId
 router.route('/:userId/friends/:friendId').delete(removeAssignment);
