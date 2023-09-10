@@ -19,11 +19,7 @@ module.exports = {
       if (!user) {
         return res.status(404).json({ message: 'No user with that ID' })
       }
-      res.json({
-        user,
-        thoughts: await thoughts(req.params.userId),
-        friends: await thoughts(req.params.userId),
-      });
+      res.json(user);
     } catch (err) {
       console.log(err);
       return res.status(500).json(err);
